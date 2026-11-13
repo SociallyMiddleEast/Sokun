@@ -82,11 +82,11 @@ window.SOKUN = {
   // Gallery tiles. To use real photos: put them in assets/photos/ and set
   // image: 'assets/photos/your-photo.jpg'. Without an image a soft colour panel is shown.
   gallery: [
-    { label: 'The studio', image: '', tone: 'stone', wide: true },
-    { label: 'Boxing corner', image: '', tone: 'ember' },
-    { label: 'Reformer & Pilates', image: '', tone: 'sand' },
-    { label: 'Dance floor', image: '', tone: 'mist' },
-    { label: 'Diet clinic', image: '', tone: 'pine' },
+    { label: 'The studio', image: 'assets/photos/studio.jpeg', tone: 'stone', wide: true },
+    { label: 'Boxing corner', image: 'assets/photos/boxing.jpeg', tone: 'ember' },
+    { label: 'Reformer & Pilates', image: 'assets/photos/reformer.jpeg', tone: 'sand' },
+    { label: 'Dance floor', image: 'assets/photos/dance.jpeg', tone: 'mist' },
+    { label: 'Diet clinic', image: 'assets/photos/diet-clinic.jpeg', tone: 'pine' },
   ],
 
   // Optional: a real filmed walk-in (street → building → studio). If you add the file,
