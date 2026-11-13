@@ -413,7 +413,7 @@ export function createScene(canvasEl, { mobile = false } = {}) {
     // frosted vinyl with the class list
     const vinyl = signCanvasText(2048, 64, null, (g, w, h) => {
       g.fillStyle = 'rgba(255,255,255,.88)'; g.font = '600 30px Manrope, Arial, sans-serif';
-      spacedText(g, 'BOXING  ·  BELLY DANCE  ·  MAT PILATES  ·  TOTAL BODY BURN  ·  SALSA  ·  HIP HOP  ·  YOGA  ·  GYMNASTICS  ·  DIET CLINIC', w / 2, h / 2 + 2, 4);
+      spacedText(g, 'REFORMER  ·  PILATES  ·  BOXING  ·  CROSS FIT  ·  AERIAL YOGA  ·  ZUMBA  ·  DABKE  ·  KIDS GYMNASTICS  ·  PT  ·  DIET CLINIC', w / 2, h / 2 + 2, 4);
     });
     const vm = add(new THREE.PlaneGeometry(BW - 1, .5), new THREE.MeshBasicMaterial({ map: vinyl, transparent: true, depthWrite: false }), BX0 + .06, 5.05, BZC, { cast: false, receive: false }); vm.rotation.y = -Math.PI / 2; fadeGlass.push(vm);
     // SOKUN light-box on the band above the first floor
@@ -538,6 +538,7 @@ export function createScene(canvasEl, { mobile = false } = {}) {
   const look = new THREE.Vector3(), tmp = new THREE.Vector3(), focus = new THREE.Vector3();
 
   function placeCamera(p, time = 0) {
+    p = Math.min(1, Math.max(0, p || 0));
     camCurve.getPointAt(p, camera.position);
     camCurve.getPointAt(Math.min(p + .03, 1), look); look.y = Math.max(look.y, camera.position.y) + .15;
     if (p < .5) look.z -= 4; // look down the street

@@ -9,12 +9,36 @@ const body = document.body;
 function fillContent() {
   $('#year').textContent = new Date().getFullYear();
 
-  $('#classCards').innerHTML = (C.classes || []).map((t, i) => `
-    <article class="card reveal" data-ar="${t.ar || ''}">
-      <span class="idx">${String(i + 1).padStart(2, '0')}</span>
-      <h3>${t.title}</h3>
-      <p>${t.text}</p>
-      ${t.meta ? `<span class="meta">${t.meta}</span>` : ''}
+  let n = 0;
+  $('#classCards').innerHTML = (C.classGroups || []).map(grp => `
+    <div class="class-group">
+      <h3 class="group-title reveal">${grp.title}<span lang="ar">${grp.ar || ''}</span><small>${grp.classes.length}</small></h3>
+      <div class="cards">
+        ${grp.classes.map(t => `
+          <article class="card reveal" data-ar="${t.ar || ''}">
+            <span class="idx">${String(++n).padStart(2, '0')}</span>
+            <h4>${t.title}</h4>
+            <p>${t.text}</p>
+          </article>`).join('')}
+      </div>
+    </div>`).join('');
+  $$('.js-class-count').forEach(el => el.textContent = n);
+
+  const cur = C.currency || '$';
+  const money = v => `${cur}${Number.isInteger(v) ? v : v.toFixed(2)}`;
+  $('#pricingCards').innerHTML = (C.pricing || []).map(p => `
+    <article class="price-card ${p.featured ? 'featured' : ''} ${p.wide ? 'wide' : ''} reveal">
+      <header><h3>${p.title}</h3><span lang="ar">${p.ar || ''}</span></header>
+      ${p.note ? `<p class="price-note">${p.note}</p>` : ''}
+      <div class="price-groups">
+        ${p.groups.map(g => `
+          <div class="price-group">
+            ${g.name ? `<h4>${g.name}</h4>` : ''}
+            <ul>${g.rows.map(([label, sessions, price]) => `
+              <li><span>${label}${sessions > 1 ? `<em>${money(price / sessions)} / session</em>` : ''}</span><b>${money(price)}</b></li>`).join('')}
+            </ul>
+          </div>`).join('')}
+      </div>
     </article>`).join('');
 
   $('#gallery').innerHTML = (C.gallery || []).map(g => `
@@ -81,7 +105,7 @@ function loop(now) {
   raf = requestAnimationFrame(loop);
   const time = now / 1000;
   if (mode === 'intro') {
-    const t = video ? (video.duration ? video.currentTime / video.duration : 0) : Math.min(1, (now - start) / 1000 / DURATION);
+    const t = video ? (video.duration ? video.currentTime / video.duration : 0) : Math.min(1, Math.max(0, (now - start) / 1000 / DURATION));
     if (!video) scene.update(pathOf(t), time);
     progressBar.style.width = (t * 100) + '%';
     captions.forEach(c => c.classList.toggle('on', t >= +c.dataset.at && t < +c.dataset.until));

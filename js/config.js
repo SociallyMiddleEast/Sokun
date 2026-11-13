@@ -21,16 +21,62 @@ window.SOKUN = {
     // ['Saturday', '09:00 – 14:00'],
   ],
 
-  // Classes (section "Classes")
-  classes: [
-    { title: 'Boxing', ar: 'ملاكمة', text: 'Pads, bags and footwork. Build power, speed and confidence.', meta: 'Cardio · Strength' },
-    { title: 'Belly Dance', ar: 'رقص شرقي', text: 'Shimmies, isolations and flow — oriental dance for every body.', meta: 'Dance' },
-    { title: 'Mat Pilates', ar: 'بيلاتس', text: 'Core strength, posture and control, one slow breath at a time.', meta: 'Core · Mobility' },
-    { title: 'Total Body Burn', ar: 'حرق كامل', text: 'High-energy, full-body conditioning to sweat, sculpt and recharge.', meta: 'HIIT' },
-    { title: 'Salsa', ar: 'سالسا', text: 'Learn the steps, feel the rhythm, and leave smiling.', meta: 'Dance' },
-    { title: 'Hip Hop', ar: 'هيب هوب', text: 'Grooves, choreography and attitude.', meta: 'Dance' },
-    { title: 'Yoga', ar: 'يوغا', text: 'Breath, balance and flexibility — the stillness in Sokun.', meta: 'Mind · Body' },
-    { title: 'Gymnastics', ar: 'جمباز', text: 'Flexibility, strength and body control, step by step.', meta: 'Skills' },
+  // Classes, grouped (section "Classes")
+  classGroups: [
+    { title: 'Fitness & Strength', ar: 'لياقة وقوة', classes: [
+      { title: 'Functional', ar: 'تدريب وظيفي', text: 'Real-life movements that build strength, balance and mobility.' },
+      { title: 'Total Body Burn', ar: 'حرق كامل', text: 'High-energy, full-body conditioning to sweat and sculpt.' },
+      { title: 'Fitness & Boxing', ar: 'لياقة وملاكمة', text: 'Cardio and strength mixed with pads, bags and footwork.' },
+      { title: 'Girls Boxing', ar: 'ملاكمة للبنات', text: 'Boxing technique and conditioning in a women-only class.' },
+      { title: 'Abs & Glutes', ar: 'بطن وأرداف', text: 'Focused core and lower-body sculpting.' },
+      { title: 'Lift & Sculpt', ar: 'رفع ونحت', text: 'Weights and controlled reps to tone and strengthen.' },
+      { title: 'Cross Fit', ar: 'كروس فيت', text: 'Varied, intense functional workouts — every class is different.' },
+      { title: 'TRX × Trampoline', ar: 'TRX وترامبولين', text: 'Suspension training meets rebounding cardio.' },
+      { title: 'PT Sessions', ar: 'تدريب شخصي', text: 'One-on-one coaching built entirely around your goals.' },
+    ]},
+    { title: 'Pilates & Mind-Body', ar: 'بيلاتس وتوازن', classes: [
+      { title: 'Reformer', ar: 'ريفورمر', text: 'Machine-based Pilates for deep core strength and long, lean muscle.' },
+      { title: 'Mat Pilates', ar: 'بيلاتس أرضي', text: 'Core, posture and control on the mat.' },
+      { title: 'Yoga', ar: 'يوغا', text: 'Breath, balance and flexibility — the stillness in Sokun.' },
+      { title: 'Aerial Yoga', ar: 'يوغا هوائية', text: 'Yoga in a suspended hammock — strength, stretch and fun.' },
+    ]},
+    { title: 'Dance', ar: 'رقص', classes: [
+      { title: 'Belly Dance', ar: 'رقص شرقي', text: 'Shimmies, isolations and flow — oriental dance for every body.' },
+      { title: 'Salsa', ar: 'سالسا', text: 'Learn the steps, feel the rhythm, leave smiling.' },
+      { title: 'Zumba', ar: 'زومبا', text: 'A dance-fitness party you won\'t want to end.' },
+      { title: 'Hip Hop', ar: 'هيب هوب', text: 'Grooves, choreography and attitude.' },
+      { title: 'Dabke', ar: 'دبكة', text: 'Lebanon\'s own folk dance — stamp, link arms and celebrate.' },
+    ]},
+    { title: 'Kids & Gymnastics', ar: 'أطفال وجمباز', classes: [
+      { title: 'Kids Gymnastics', ar: 'جمباز أطفال', text: 'Flexibility, strength and confidence through play.' },
+      { title: 'Fly Gymnastics', ar: 'جمباز طيران', text: 'Flips, jumps and airborne skills, step by step.' },
+      { title: 'Kid Fit Boxing', ar: 'ملاكمة أطفال', text: 'Fitness and boxing basics for kids — focus, discipline, energy.' },
+    ]},
+  ],
+
+  // Pricing (USD). Each row: [label, number of sessions, price]
+  currency: '$',
+  pricing: [
+    { title: 'Class Packages', ar: 'باقات الحصص', featured: true,
+      note: 'Access to Boxing, Belly Dance, Mat Pilates, Total Body Burn, Salsa, Hip Hop, Yoga and Gymnastics.',
+      groups: [{ rows: [['Single class', 1, 15], ['4 sessions', 4, 55], ['8 sessions', 8, 90], ['12 sessions', 12, 126]] }] },
+    { title: 'Reformer Pilates', ar: 'بيلاتس ريفورمر',
+      groups: [{ rows: [['Single class', 1, 20], ['4 sessions', 4, 75], ['8 sessions', 8, 140], ['12 sessions', 12, 200]] }] },
+    { title: 'One-on-One PT', ar: 'تدريب شخصي',
+      groups: [{ rows: [['Single session', 1, 35], ['8 sessions', 8, 240], ['12 sessions', 12, 300]] }] },
+    { title: 'Dance Packages', ar: 'باقات الرقص',
+      groups: [
+        { name: 'Belly Dance', rows: [['Single session', 1, 15], ['4 sessions', 4, 50]] },
+        { name: 'Salsa', rows: [['Single session', 1, 15], ['4 sessions', 4, 50]] },
+        { name: 'Zumba', rows: [['Single class', 1, 15], ['4 sessions', 4, 50]] },
+      ] },
+    { title: 'Kids Packages', ar: 'باقات الأطفال', wide: true,
+      groups: [
+        { name: 'Hip Hop', rows: [['Single', 1, 15], ['4 sessions', 4, 50]] },
+        { name: 'Gymnastics', rows: [['Single session', 1, 15], ['4 sessions', 4, 50]] },
+        { name: 'Boxing', rows: [['Single class', 1, 15], ['4 sessions', 4, 50], ['Private session', 1, 25]] },
+        { name: 'Aerial', rows: [['Single class', 1, 20], ['4 sessions', 4, 70]] },
+      ] },
   ],
 
   // Gallery tiles. To use real photos: put them in assets/photos/ and set
@@ -38,7 +84,7 @@ window.SOKUN = {
   gallery: [
     { label: 'The studio', image: '', tone: 'stone', wide: true },
     { label: 'Boxing corner', image: '', tone: 'ember' },
-    { label: 'Mat Pilates', image: '', tone: 'sand' },
+    { label: 'Reformer & Pilates', image: '', tone: 'sand' },
     { label: 'Dance floor', image: '', tone: 'mist' },
     { label: 'Diet clinic', image: '', tone: 'pine' },
   ],

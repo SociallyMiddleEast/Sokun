@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sokun Wellness Center · Bikfaya</title>
-  <meta name="description" content="Sokun (سكون) Wellness Center, Bikfaya Main Street above BLOM Bank — Boxing, Belly Dance, Mat Pilates, Total Body Burn, Salsa, Hip Hop, Yoga, Gymnastics and a Diet Clinic." />
+  <meta name="description" content="Sokun (سكون) Wellness Center, Bikfaya Main Street above BLOM Bank — Reformer & Mat Pilates, Boxing, Cross Fit, Aerial Yoga, Zumba, Dabke, kids gymnastics, PT sessions and a Diet Clinic." />
   <meta name="theme-color" content="#2b3528" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,6 +39,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="#philosophy">About</a>
       <a href="#classes">Classes</a>
+      <a href="#pricing">Pricing</a>
       <a href="#diet">Diet Clinic</a>
       <a href="#space">The Studio</a>
       <a href="#visit">Visit</a>
@@ -52,7 +53,7 @@
       <div class="hero-inner">
         <p class="eyebrow reveal">Wellness Center · Bikfaya Main Street</p>
         <h1 class="reveal">Move. Breathe.<br /><em>Nourish.</em></h1>
-        <p class="lead reveal">Boxing, dance, Pilates, yoga and gymnastics classes — plus a diet clinic to fuel it all. Find us on the first floor, right above BLOM Bank.</p>
+        <p class="lead reveal">Boxing, Reformer &amp; Mat Pilates, yoga, dance, Cross Fit, kids gymnastics and personal training — plus a diet clinic to fuel it all. First floor, right above BLOM Bank.</p>
         <div class="hero-cta reveal">
           <a href="#visit" class="btn js-book">Book a class</a>
           <a href="#classes" class="btn btn-ghost">See the classes</a>
@@ -68,9 +69,9 @@
           <p class="eyebrow reveal">About Sokun</p>
           <h2 class="reveal">Wellness is how you move, <em>and how you eat.</em></h2>
           <p class="reveal">Sokun — <span lang="ar">سكون</span> — means calm. It's the feeling after a good class: heart still racing a little, mind finally quiet.</p>
-          <p class="reveal">From the power of boxing to the flow of belly dance and the focus of Pilates and yoga, every class meets you at your level. Our diet clinic connects the work you do in the studio with what's on your plate.</p>
+          <p class="reveal">From the power of boxing and Cross Fit to the flow of belly dance and dabke, the focus of Reformer Pilates and the lightness of aerial yoga, every class meets you at your level — and there's a full programme for kids. Our diet clinic connects the work you do in the studio with what's on your plate.</p>
           <div class="stats reveal">
-            <div><b>8</b><span>class styles</span></div>
+            <div><b class="js-class-count">21</b><span>classes for adults &amp; kids</span></div>
             <div><b>1</b><span>in-house diet clinic</span></div>
             <div><b>All</b><span>levels welcome</span></div>
           </div>
@@ -84,8 +85,20 @@
           <p class="eyebrow reveal">Classes</p>
           <h2 class="reveal">Find your <em>rhythm.</em></h2>
         </div>
-        <div class="cards" id="classCards"><!-- filled from js/config.js --></div>
-        <p class="note reveal">Ask us for this week's timetable — new members can book a trial class.</p>
+        <div class="class-groups" id="classCards"><!-- filled from js/config.js --></div>
+        <p class="note reveal">Ask us for this week's timetable.</p>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal">Pricing</p>
+          <h2 class="reveal">Packages that <em>fit your week.</em></h2>
+        </div>
+        <div class="price-grid" id="pricingCards"><!-- filled from js/config.js --></div>
+        <p class="note reveal">Prices in USD. Ask us about diet clinic consultations.</p>
+        <div class="hero-cta reveal" style="margin-top:28px"><a href="#visit" class="btn btn-dark js-book">Book your package</a></div>
       </div>
     </section>
 
