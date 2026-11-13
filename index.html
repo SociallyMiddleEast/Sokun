@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sokun Wellness Center · Bikfaya</title>
+  <meta name="description" content="Sokun (سكون) Wellness Center in Bikfaya, Mount Lebanon — massage, skincare, movement and stillness among the pines." />
+  <meta name="theme-color" content="#2b3528" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="intro-playing">
+
+  <!-- ============ CINEMATIC INTRO ============ -->
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <div id="intro" aria-live="polite">
+    <div class="intro-loader" id="introLoader">
+      <span class="loader-ar">سكون</span>
+      <span class="loader-bar"><i id="loaderFill"></i></span>
+    </div>
+    <p class="caption" data-at="0.03" data-until="0.24">Bikfaya<span>Mount Lebanon · 900 m</span></p>
+    <p class="caption" data-at="0.30" data-until="0.52">Up the road,<span>between the pines</span></p>
+    <p class="caption" data-at="0.60" data-until="0.80">A place to slow down</p>
+    <p class="caption" data-at="0.84" data-until="0.95">Welcome to Sokun<span>Wellness Center · Bikfaya</span></p>
+    <button id="skipIntro" class="skip">Skip intro <span aria-hidden="true">→</span></button>
+    <div class="intro-progress"><i id="introProgress"></i></div>
+  </div>
+  <div id="whiteout"></div>
+
+  <!-- ============ SITE ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="brand" aria-label="Sokun home">
+      <span class="brand-ar">سكون</span>
+      <span class="brand-en">SOKUN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#ritual">The Ritual</a>
+      <a href="#space">The Space</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#visit" class="btn btn-small js-book">Book</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </header>
+
+  <main id="site">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <p class="eyebrow reveal">Wellness Center · Bikfaya, Lebanon</p>
+        <h1 class="reveal">Stillness,<br /><em>among the pines.</em></h1>
+        <p class="lead reveal">Sokun — <span lang="ar">سكون</span> — means calm. Leave the noise at the bottom of the mountain and give your body and mind an hour to settle.</p>
+        <div class="hero-cta reveal">
+          <a href="#visit" class="btn js-book">Book a session</a>
+          <a href="#treatments" class="btn btn-ghost">Explore treatments</a>
+        </div>
+      </div>
+      <a href="#philosophy" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+      <div class="wrap two-col">
+        <div class="ar-mark reveal" aria-hidden="true">سكون</div>
+        <div>
+          <p class="eyebrow reveal">Our philosophy</p>
+          <h2 class="reveal">The quiet that the mountain gives you, <em>made into a practice.</em></h2>
+          <p class="reveal">Bikfaya has always been where Beirut comes to breathe — cool air, pine shade, slower mornings. Sokun brings that feeling indoors: warm stone, soft light, unhurried hands, and time that belongs only to you.</p>
+          <p class="reveal">Every visit is built around one idea: you should leave lighter than you arrived.</p>
+          <div class="stats reveal">
+            <div><b>900<small>m</small></b><span>above the sea</span></div>
+            <div><b>1</b><span>guest at a time, per therapist</span></div>
+            <div><b>0</b><span>rush</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="treatments" id="treatments">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal">Treatments</p>
+          <h2 class="reveal">Choose how you <em>unwind.</em></h2>
+        </div>
+        <div class="cards" id="treatmentCards"><!-- filled from js/config.js --></div>
+      </div>
+    </section>
+
+    <section class="ritual" id="ritual">
+      <div class="wrap">
+        <div class="section-head light">
+          <p class="eyebrow reveal">The Sokun ritual</p>
+          <h2 class="reveal">Three moments, <em>one slow breath.</em></h2>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><span class="num">01</span><h3>Arrive</h3><p>Herbal tea, a warm towel, and a few minutes to leave the drive behind you.</p></li>
+          <li class="reveal"><span class="num">02</span><h3>Unwind</h3><p>Your treatment, tailored to what your body is asking for today.</p></li>
+          <li class="reveal"><span class="num">03</span><h3>Return</h3><p>Rest in the lounge before you step back out into the pines.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="space" id="space">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal">The space</p>
+          <h2 class="reveal">Stone, wood, water <em>&amp; light.</em></h2>
+        </div>
+        <div class="gallery" id="gallery"><!-- filled from js/config.js --></div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="wrap">
+        <blockquote class="reveal">“Calm is not something you find. It is something you return to.”</blockquote>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow reveal">Visit us</p>
+          <h2 class="reveal">Find us in <em>Bikfaya.</em></h2>
+          <dl class="info reveal" id="visitInfo"><!-- filled from js/config.js --></dl>
+          <div class="hero-cta reveal" id="contactButtons"></div>
+        </div>
+        <div class="map reveal">
+          <iframe id="mapFrame" title="Map to Sokun Wellness Center" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand"><span class="brand-ar">سكون</span><span class="brand-en">SOKUN</span></div>
+      <p id="footerLine">Wellness Center · Bikfaya, Mount Lebanon</p>
+      <button class="link-btn" id="replayIntro">↺ Replay the walk in</button>
+      <p class="copy">© <span id="year"></span> Sokun Wellness Center</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
