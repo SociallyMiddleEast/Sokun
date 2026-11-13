@@ -7,8 +7,8 @@ window.SOKUN = {
 
   // Contact — fill these in
   instagram: '',          // e.g. 'sokun.wellness'  (handle only, no @)
-  whatsapp: '',           // e.g. '96170123456'     (country code, digits only)
-  phone: '',              // e.g. '+961 70 123 456'
+  whatsapp: '96171616581', // country code + number, digits only
+  phone: '+961 71 616 581',
   email: '',              // e.g. 'hello@sokun.com'
 
   address: 'Bikfaya Main Street (Antelias – Bikfaya Rd), 1st floor — above BLOM Bank',

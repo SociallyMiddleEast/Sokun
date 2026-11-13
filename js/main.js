@@ -53,19 +53,27 @@ function fillContent() {
     ['Address', C.address],
     ['Hours', (C.hours || []).length ? C.hours.map(([d, h]) => `${d} &nbsp;·&nbsp; ${h}`).join('<br>') : 'Ask us for the weekly class timetable'],
     ['Phone', C.phone && `<a href="tel:${C.phone.replace(/\s/g, '')}">${C.phone}</a>`],
+    ['WhatsApp', wa && `<a href="${wa}" target="_blank" rel="noopener">${C.phone || '+' + C.whatsapp}</a>`],
     ['Email', C.email && `<a href="mailto:${C.email}">${C.email}</a>`],
     ['Instagram', ig && `<a href="${ig}" target="_blank" rel="noopener">@${C.instagram.replace('@', '')}</a>`],
   ].filter(([, v]) => v);
   $('#visitInfo').innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
 
   const btns = [];
-  if (wa) btns.push(`<a class="btn btn-dark" href="${wa}" target="_blank" rel="noopener">Book on WhatsApp</a>`);
-  if (C.phone) btns.push(`<a class="btn btn-line" href="tel:${C.phone.replace(/\s/g, '')}">Call us</a>`);
+  if (wa) btns.push(`<a class="btn btn-dark" href="${wa}" target="_blank" rel="noopener">WhatsApp us</a>`);
+  if (C.phone) btns.push(`<a class="btn btn-line" href="tel:${C.phone.replace(/\s/g, '')}">Call ${C.phone}</a>`);
   if (ig) btns.push(`<a class="btn btn-line" href="${ig}" target="_blank" rel="noopener">Instagram</a>`);
   $('#contactButtons').innerHTML = btns.join('');
 
   // "Book" buttons go straight to WhatsApp when a number is set
   if (wa) $$('.js-book').forEach(a => { a.href = wa; a.target = '_blank'; a.rel = 'noopener'; });
+
+  // floating call + WhatsApp buttons
+  if (wa || C.phone) {
+    const fab = $('#fab'); fab.hidden = false;
+    if (wa) $('#fabWa').href = wa; else $('#fabWa').remove();
+    if (C.phone) $('#fabCall').href = `tel:${C.phone.replace(/\s/g, '')}`; else $('#fabCall').remove();
+  }
 
   $('#mapFrame').src = `https://www.google.com/maps?q=${encodeURIComponent(C.mapQuery || 'Bikfaya, Lebanon')}&z=15&output=embed`;
 }
