@@ -39,6 +39,8 @@ em { font-style: italic; font-weight: 300; }
   display: block; z-index: 0;
 }
 
+.intro-video { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0; }
+
 /* ---------- Intro overlay ---------- */
 #intro {
   position: fixed; inset: 0; z-index: 30;
@@ -185,7 +187,7 @@ p + p { margin-top: 16px; }
 
 /* ---------- Treatments ---------- */
 .treatments { background: var(--paper); }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(43,53,40,.12); border: 1px solid rgba(43,53,40,.12); }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(43,53,40,.12); border: 1px solid rgba(43,53,40,.12); }
 .card {
   background: var(--paper); padding: 44px 36px 40px; position: relative; overflow: hidden;
   transition: background .5s var(--ease), color .5s;
@@ -195,12 +197,28 @@ p + p { margin-top: 16px; }
   font-family: var(--arabic); font-size: 30px; color: var(--sand); transition: color .5s;
 }
 .card .idx { font-size: 11px; letter-spacing: .3em; color: var(--clay); font-weight: 600; }
-.card h3 { font-size: 32px; margin: 70px 0 14px; }
+.card h3 { font-size: 30px; margin: 64px 0 12px; }
+.note { margin-top: 28px; font-size: 14px; color: var(--muted); }
 .card p { font-size: 15px; color: var(--muted); transition: color .5s; }
 .card .meta { display: inline-block; margin-top: 26px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; border-top: 1px solid currentColor; padding-top: 10px; opacity: .7; }
 .card:hover { background: var(--pine); color: var(--cream); }
 .card:hover p { color: rgba(243,237,227,.75); }
 .card:hover::before { color: rgba(232,184,120,.35); }
+
+/* ---------- Diet clinic ---------- */
+.diet { background: var(--cream); }
+.diet p { color: #4a4740; font-size: 17px; max-width: 540px; }
+.ticks { list-style: none; margin: 26px 0 36px; display: grid; gap: 10px; }
+.ticks li { padding-left: 30px; position: relative; font-size: 15px; }
+.ticks li::before { content: ''; position: absolute; left: 0; top: 9px; width: 16px; height: 1px; background: var(--clay); }
+.diet-card {
+  aspect-ratio: 4 / 4.4; border-radius: 4px; position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 70% 20%, #93a37f 0%, #4d5e43 55%, #2b3528 100%);
+  color: var(--cream); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
+}
+.diet-card .ar { position: absolute; top: 10px; right: 30px; font-family: var(--arabic); font-size: clamp(90px, 12vw, 170px); color: rgba(255,255,255,.12); line-height: 1.2; }
+.diet-card b { font-family: var(--serif); font-weight: 300; font-size: clamp(48px, 6vw, 84px); line-height: 1; }
+.diet-card i { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; font-style: normal; color: var(--gold); margin-top: 14px; }
 
 /* ---------- Ritual ---------- */
 .ritual { background: var(--pine); color: var(--cream); overflow: hidden; }
@@ -264,6 +282,7 @@ body.intro-playing .hero .reveal { opacity: 0 !important; transform: translateY(
   .two-col { grid-template-columns: 1fr; }
   .ar-mark { text-align: left; font-size: 140px; }
   .cards { grid-template-columns: 1fr 1fr; }
+  .diet-card { aspect-ratio: 16 / 10; }
   .steps { grid-template-columns: 1fr; gap: 34px; }
   .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
 }

@@ -9,7 +9,7 @@ const body = document.body;
 function fillContent() {
   $('#year').textContent = new Date().getFullYear();
 
-  $('#treatmentCards').innerHTML = (C.treatments || []).map((t, i) => `
+  $('#classCards').innerHTML = (C.classes || []).map((t, i) => `
     <article class="card reveal" data-ar="${t.ar || ''}">
       <span class="idx">${String(i + 1).padStart(2, '0')}</span>
       <h3>${t.title}</h3>
@@ -23,11 +23,11 @@ function fillContent() {
       <span>${g.label}</span>
     </figure>`).join('');
 
-  const wa = C.whatsapp ? `https://wa.me/${C.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hello Sokun, I would like to book a session.')}` : '';
+  const wa = C.whatsapp ? `https://wa.me/${C.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hello Sokun, I would like to book a class.')}` : '';
   const ig = C.instagram ? `https://instagram.com/${C.instagram.replace('@', '')}` : '';
   const rows = [
     ['Address', C.address],
-    ['Hours', (C.hours || []).map(([d, h]) => `${d} &nbsp;·&nbsp; ${h}`).join('<br>')],
+    ['Hours', (C.hours || []).length ? C.hours.map(([d, h]) => `${d} &nbsp;·&nbsp; ${h}`).join('<br>') : 'Ask us for the weekly class timetable'],
     ['Phone', C.phone && `<a href="tel:${C.phone.replace(/\s/g, '')}">${C.phone}</a>`],
     ['Email', C.email && `<a href="mailto:${C.email}">${C.email}</a>`],
     ['Instagram', ig && `<a href="${ig}" target="_blank" rel="noopener">@${C.instagram.replace('@', '')}</a>`],
@@ -66,13 +66,13 @@ function initSite() {
 }
 
 /* ================= Intro ================= */
-const DURATION = 19; // seconds for the full walk-in
+const DURATION = 21; // seconds for the full walk-in
 const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; // cubic in-out
 // slightly faster through the street, slower at the door
 const pathOf = t => ease(t);
 function smoothT(a, b, v) { const x = Math.min(1, Math.max(0, (v - a) / (b - a))); return x * x * (3 - 2 * x); }
 
-let scene = null, mode = 'intro', start = 0, raf = 0, lastIdle = 0;
+let scene = null, video = null, mode = 'intro', start = 0, raf = 0, lastIdle = 0;
 const captions = $$('.caption');
 const whiteout = $('#whiteout');
 const progressBar = $('#introProgress');
@@ -81,13 +81,13 @@ function loop(now) {
   raf = requestAnimationFrame(loop);
   const time = now / 1000;
   if (mode === 'intro') {
-    const t = Math.min(1, (now - start) / 1000 / DURATION);
-    scene.update(pathOf(t), time);
+    const t = video ? (video.duration ? video.currentTime / video.duration : 0) : Math.min(1, (now - start) / 1000 / DURATION);
+    if (!video) scene.update(pathOf(t), time);
     progressBar.style.width = (t * 100) + '%';
     captions.forEach(c => c.classList.toggle('on', t >= +c.dataset.at && t < +c.dataset.until));
     whiteout.style.opacity = smoothT(.9, .985, t);
-    if (t >= 1) finishIntro();
-  } else if (mode === 'idle') {
+    if (t >= 1 || (video && video.ended)) finishIntro();
+  } else if (mode === 'idle' && scene) {
     // live 3D interior as the hero background (only while visible)
     if (window.scrollY < window.innerHeight * 1.05 && document.visibilityState === 'visible' && now - lastIdle > 30) {
       lastIdle = now; scene.idle(time);
@@ -112,7 +112,8 @@ function finishIntro() {
 }
 
 function playIntro() {
-  if (!scene) return;
+  if (!scene && !video) return;
+  if (video) { video.currentTime = 0; video.play().catch(() => finishIntro()); }
   window.scrollTo(0, 0);
   body.classList.add('intro-playing');
   whiteout.style.transition = 'none'; whiteout.style.opacity = 0;
@@ -137,6 +138,23 @@ async function boot() {
   ]).catch(() => {});
   fill.style.width = '55%';
   await new Promise(r => requestAnimationFrame(() => setTimeout(r, 30)));
+
+  // Real filmed walk-in (optional): plays instead of the 3D scene
+  if (C.introVideo) {
+    video = document.createElement('video');
+    Object.assign(video, { src: C.introVideo, muted: true, playsInline: true, preload: 'auto' });
+    video.className = 'intro-video'; document.body.prepend(video); $('#scene').style.display = 'none';
+    await new Promise(r => { video.addEventListener('canplay', r, { once: true }); video.addEventListener('error', r, { once: true }); setTimeout(r, 6000); });
+    fill.style.width = '100%';
+    setTimeout(() => {
+      loader.classList.add('done');
+      if (C.playIntro === false || reduced) { mode = 'intro'; finishIntro(); } else playIntro();
+      raf = requestAnimationFrame(loop);
+    }, 300);
+    $('#skipIntro').addEventListener('click', finishIntro);
+    $('#replayIntro').addEventListener('click', playIntro);
+    return;
+  }
 
   try {
     scene = createScene($('#scene'), { mobile });

@@ -1,6 +1,8 @@
 # Sokun Wellness Center — website
 
-Static website for **Sokun (سكون) Wellness Center, Bikfaya**. The cinematic intro is a real-time 3D scene (three.js): it starts on a Bikfaya street lined with stone houses and umbrella pines, goes up to the Sokun building, through the sliding doors and inside. Then the website opens, with the candle-lit interior still moving behind the hero section.
+Static website for **Sokun (سكون) Wellness Center**: fitness, dance and a diet clinic on Bikfaya Main Street (Antelias–Bikfaya Rd), 1st floor above BLOM Bank.
+
+The intro is a real-time 3D scene (three.js) modelled on the real street. It drives up the main street past shops, apartment blocks with balconies and rooftop water tanks, utility poles and wires, and parked cars. It crosses to face the white BLOM Bank building, rises past the bank fascia to the first floor and glides through the glass into the Sokun studio (mirrors, barre, mats, boxing bags, diet-clinic room). Then the website opens, with the studio still moving behind the hero section.
 
 No build step and no external 3D files: it's plain HTML, CSS and JS, ready for GitHub Pages.
 
@@ -14,7 +16,8 @@ No build step and no external 3D files: it's plain HTML, CSS and JS, ready for G
 Everything business-specific is in **`js/config.js`**:
 - `instagram`, `whatsapp`, `phone`, `email`: anything you leave empty is hidden. Once `whatsapp` is set, every **Book** button opens WhatsApp with a pre-filled message.
 - `address`, `mapQuery` (or exact `"lat,lng"` for the map pin), `hours`
-- `treatments`: titles, Arabic names, descriptions, durations
+- `classes`: titles, Arabic names, descriptions, tags
+- `introVideo`: if you film the real walk-in (street → building → stairs → studio) on a phone or drone, drop it in `assets/intro.mp4` and set `introVideo: 'assets/intro.mp4'`. It then plays instead of the 3D scene. Landscape, 15–25 s, under 15 MB, no sound needed
 - `gallery`: put photos in `assets/photos/` and set `image: 'assets/photos/xyz.jpg'`
 - `playIntro: false` turns the intro off
 

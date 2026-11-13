@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sokun Wellness Center · Bikfaya</title>
-  <meta name="description" content="Sokun (سكون) Wellness Center in Bikfaya, Mount Lebanon — massage, skincare, movement and stillness among the pines." />
+  <meta name="description" content="Sokun (سكون) Wellness Center, Bikfaya Main Street above BLOM Bank — Boxing, Belly Dance, Mat Pilates, Total Body Burn, Salsa, Hip Hop, Yoga, Gymnastics and a Diet Clinic." />
   <meta name="theme-color" content="#2b3528" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,10 +22,9 @@
       <span class="loader-ar">سكون</span>
       <span class="loader-bar"><i id="loaderFill"></i></span>
     </div>
-    <p class="caption" data-at="0.03" data-until="0.24">Bikfaya<span>Mount Lebanon · 900 m</span></p>
-    <p class="caption" data-at="0.30" data-until="0.52">Up the road,<span>between the pines</span></p>
-    <p class="caption" data-at="0.60" data-until="0.80">A place to slow down</p>
-    <p class="caption" data-at="0.84" data-until="0.95">Welcome to Sokun<span>Wellness Center · Bikfaya</span></p>
+    <p class="caption" data-at="0.03" data-until="0.26">Bikfaya Main Street<span>Antelias – Bikfaya Road</span></p>
+    <p class="caption" data-at="0.56" data-until="0.72">Above BLOM Bank<span>First floor</span></p>
+    <p class="caption" data-at="0.79" data-until="0.95">Welcome to Sokun<span>Fitness · Dance · Diet Clinic</span></p>
     <button id="skipIntro" class="skip">Skip intro <span aria-hidden="true">→</span></button>
     <div class="intro-progress"><i id="introProgress"></i></div>
   </div>
@@ -38,10 +37,10 @@
       <span class="brand-en">SOKUN</span>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#philosophy">Philosophy</a>
-      <a href="#treatments">Treatments</a>
-      <a href="#ritual">The Ritual</a>
-      <a href="#space">The Space</a>
+      <a href="#philosophy">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#diet">Diet Clinic</a>
+      <a href="#space">The Studio</a>
       <a href="#visit">Visit</a>
     </nav>
     <a href="#visit" class="btn btn-small js-book">Book</a>
@@ -51,12 +50,12 @@
   <main id="site">
     <section class="hero" id="top">
       <div class="hero-inner">
-        <p class="eyebrow reveal">Wellness Center · Bikfaya, Lebanon</p>
-        <h1 class="reveal">Stillness,<br /><em>among the pines.</em></h1>
-        <p class="lead reveal">Sokun — <span lang="ar">سكون</span> — means calm. Leave the noise at the bottom of the mountain and give your body and mind an hour to settle.</p>
+        <p class="eyebrow reveal">Wellness Center · Bikfaya Main Street</p>
+        <h1 class="reveal">Move. Breathe.<br /><em>Nourish.</em></h1>
+        <p class="lead reveal">Boxing, dance, Pilates, yoga and gymnastics classes — plus a diet clinic to fuel it all. Find us on the first floor, right above BLOM Bank.</p>
         <div class="hero-cta reveal">
-          <a href="#visit" class="btn js-book">Book a session</a>
-          <a href="#treatments" class="btn btn-ghost">Explore treatments</a>
+          <a href="#visit" class="btn js-book">Book a class</a>
+          <a href="#classes" class="btn btn-ghost">See the classes</a>
         </div>
       </div>
       <a href="#philosophy" class="scroll-cue" aria-label="Scroll down"><span></span></a>
@@ -66,39 +65,61 @@
       <div class="wrap two-col">
         <div class="ar-mark reveal" aria-hidden="true">سكون</div>
         <div>
-          <p class="eyebrow reveal">Our philosophy</p>
-          <h2 class="reveal">The quiet that the mountain gives you, <em>made into a practice.</em></h2>
-          <p class="reveal">Bikfaya has always been where Beirut comes to breathe — cool air, pine shade, slower mornings. Sokun brings that feeling indoors: warm stone, soft light, unhurried hands, and time that belongs only to you.</p>
-          <p class="reveal">Every visit is built around one idea: you should leave lighter than you arrived.</p>
+          <p class="eyebrow reveal">About Sokun</p>
+          <h2 class="reveal">Wellness is how you move, <em>and how you eat.</em></h2>
+          <p class="reveal">Sokun — <span lang="ar">سكون</span> — means calm. It's the feeling after a good class: heart still racing a little, mind finally quiet.</p>
+          <p class="reveal">From the power of boxing to the flow of belly dance and the focus of Pilates and yoga, every class meets you at your level. Our diet clinic connects the work you do in the studio with what's on your plate.</p>
           <div class="stats reveal">
-            <div><b>900<small>m</small></b><span>above the sea</span></div>
-            <div><b>1</b><span>guest at a time, per therapist</span></div>
-            <div><b>0</b><span>rush</span></div>
+            <div><b>8</b><span>class styles</span></div>
+            <div><b>1</b><span>in-house diet clinic</span></div>
+            <div><b>All</b><span>levels welcome</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="treatments" id="treatments">
+    <section class="treatments" id="classes">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow reveal">Treatments</p>
-          <h2 class="reveal">Choose how you <em>unwind.</em></h2>
+          <p class="eyebrow reveal">Classes</p>
+          <h2 class="reveal">Find your <em>rhythm.</em></h2>
         </div>
-        <div class="cards" id="treatmentCards"><!-- filled from js/config.js --></div>
+        <div class="cards" id="classCards"><!-- filled from js/config.js --></div>
+        <p class="note reveal">Ask us for this week's timetable — new members can book a trial class.</p>
+      </div>
+    </section>
+
+    <section class="diet" id="diet">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow reveal">Diet Clinic · <span lang="ar">عيادة التغذية</span></p>
+          <h2 class="reveal">Train in the studio. <em>Win in the kitchen.</em></h2>
+          <p class="reveal">Personal nutrition plans built around your goals, your routine and the food you actually enjoy — with regular follow-ups so the progress sticks.</p>
+          <ul class="ticks reveal">
+            <li>Personalised meal plans</li>
+            <li>Body-composition follow-up</li>
+            <li>Plans that work with your training</li>
+          </ul>
+          <div class="hero-cta reveal"><a href="#visit" class="btn btn-dark js-book">Book a consultation</a></div>
+        </div>
+        <div class="diet-card reveal" aria-hidden="true">
+          <span class="ar">تغذية</span>
+          <b>Nourish</b>
+          <i>Move · Breathe · Nourish</i>
+        </div>
       </div>
     </section>
 
     <section class="ritual" id="ritual">
       <div class="wrap">
         <div class="section-head light">
-          <p class="eyebrow reveal">The Sokun ritual</p>
-          <h2 class="reveal">Three moments, <em>one slow breath.</em></h2>
+          <p class="eyebrow reveal">How it works</p>
+          <h2 class="reveal">Three steps, <em>one better you.</em></h2>
         </div>
         <ol class="steps">
-          <li class="reveal"><span class="num">01</span><h3>Arrive</h3><p>Herbal tea, a warm towel, and a few minutes to leave the drive behind you.</p></li>
-          <li class="reveal"><span class="num">02</span><h3>Unwind</h3><p>Your treatment, tailored to what your body is asking for today.</p></li>
-          <li class="reveal"><span class="num">03</span><h3>Return</h3><p>Rest in the lounge before you step back out into the pines.</p></li>
+          <li class="reveal"><span class="num">01</span><h3>Pick a class</h3><p>Punch, dance, stretch or sweat — choose what fits your mood and your week.</p></li>
+          <li class="reveal"><span class="num">02</span><h3>Find your rhythm</h3><p>Keep showing up. Our coaches adapt every session to your level.</p></li>
+          <li class="reveal"><span class="num">03</span><h3>Nourish</h3><p>Pair your training with a plan from the diet clinic and feel the difference.</p></li>
         </ol>
       </div>
     </section>
@@ -106,8 +127,8 @@
     <section class="space" id="space">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow reveal">The space</p>
-          <h2 class="reveal">Stone, wood, water <em>&amp; light.</em></h2>
+          <p class="eyebrow reveal">The studio</p>
+          <h2 class="reveal">Light, wood, mirrors <em>&amp; music.</em></h2>
         </div>
         <div class="gallery" id="gallery"><!-- filled from js/config.js --></div>
       </div>
@@ -115,7 +136,7 @@
 
     <section class="quote">
       <div class="wrap">
-        <blockquote class="reveal">“Calm is not something you find. It is something you return to.”</blockquote>
+        <blockquote class="reveal">“Strong body. Calm mind.”</blockquote>
       </div>
     </section>
 
@@ -123,7 +144,7 @@
       <div class="wrap two-col">
         <div>
           <p class="eyebrow reveal">Visit us</p>
-          <h2 class="reveal">Find us in <em>Bikfaya.</em></h2>
+          <h2 class="reveal">Above BLOM Bank, <em>Bikfaya.</em></h2>
           <dl class="info reveal" id="visitInfo"><!-- filled from js/config.js --></dl>
           <div class="hero-cta reveal" id="contactButtons"></div>
         </div>
@@ -137,7 +158,7 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <div class="brand"><span class="brand-ar">سكون</span><span class="brand-en">SOKUN</span></div>
-      <p id="footerLine">Wellness Center · Bikfaya, Mount Lebanon</p>
+      <p id="footerLine">Wellness Center · Bikfaya Main Street, above BLOM Bank</p>
       <button class="link-btn" id="replayIntro">↺ Replay the walk in</button>
       <p class="copy">© <span id="year"></span> Sokun Wellness Center</p>
     </div>
